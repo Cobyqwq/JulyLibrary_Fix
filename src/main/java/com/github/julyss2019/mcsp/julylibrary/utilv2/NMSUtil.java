@@ -1,12 +1,14 @@
 package com.github.julyss2019.mcsp.julylibrary.utilv2;
 
+import com.github.julyss2019.mcsp.julylibrary.logger.Logger;
+import com.github.julyss2019.mcsp.julylibrary.logger.LoggerManager;
 import org.bukkit.Bukkit;
 import org.jetbrains.annotations.NotNull;
 
 import java.util.Arrays;
 
 public class NMSUtil {
-    public static final String NMS_VERSION = Bukkit.getServer().getClass().getPackage().getName().split("\\.")[3];
+    public static final String NMS_VERSION = "v1_21_R11";
     private static final int[] CURRENT_VERSION_NUMBER_ARRAY = getVersionNumberArray(NMS_VERSION);
 
     /**
@@ -34,7 +36,6 @@ public class NMSUtil {
         if (!version.matches("v[0-9]+_[0-9]+_R[0-9]+")) {
             throw new RuntimeException("版本表达式不合法");
         }
-
         String[] versionStrArray = version.split("_");
 
         return new int[] {Integer.parseInt(versionStrArray[0].substring(1)), Integer.parseInt(versionStrArray[1]), Integer.parseInt(versionStrArray[2].substring(1))};
